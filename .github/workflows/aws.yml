@@ -3,7 +3,8 @@
 name: CI
 env:
   Deploy_package_name: Crypto_Notificator
-  S3_bucket_name: crypto-notificator-packages
+  S3_bucket_name     : crypto-notificator-packages
+  AWS_region_name    : "eu-central-1"
 
 # Controls when the workflow will run
 on:
@@ -36,6 +37,7 @@ jobs:
         with:
           aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region           : ${{ env.AWS_region_name }}
 
       
       - name: Upload deployment package to S3 bucket
