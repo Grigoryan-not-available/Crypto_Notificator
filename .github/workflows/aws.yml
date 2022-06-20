@@ -43,7 +43,7 @@ jobs:
         run : ls -la
      
       - name: Upload deployment package to S3 bucket
-        run : aws s3 cp ${{ env.Deploy_package_name }} s3://${{ env.S3_bucket_name }}
+        run : aws s3 cp ${{ env.Deploy_package_name }}.zip s3://${{ env.S3_bucket_name }}
         
       - name: print msq
         run : echo "CI Pipeline finished. Congrats:*"
