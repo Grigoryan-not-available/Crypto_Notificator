@@ -39,7 +39,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region           : ${{ env.AWS_region_name }}
 
-      
+      - name: List dir
+        run : ls -la
+     
       - name: Upload deployment package to S3 bucket
         run : aws s3 cp ${{ env.Deploy_package_name }} s3://${{ env.S3_bucket_name }}
         
